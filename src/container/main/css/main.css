@@ -1,0 +1,40 @@
+.navbar {
+    position:fixed;
+    top:0;
+    width:100%;
+    height:7%;
+    z-index:99
+}
+.search {
+    position:fixed;
+    top:7%;
+    width:100%;
+    height:8%;
+    z-index:99
+}
+.main {
+    position:absolute;
+    top:15%;
+    width:100%;
+    height:76%;
+    overflow-y:scroll;
+    z-index: 90;
+}
+.main::-webkit-scrollbar{
+    display: none;
+}
+.tabar {
+    position:fixed;
+    bottom:0;
+    width:100%;
+    height:9%;
+    z-index: 199;
+}
+.add {
+    width:40%;
+    height:60%;
+    background-image: url("../../../images/添加.png");
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: 55%;
+}
