@@ -13,6 +13,7 @@ class Parts extends React.Component{
         this.state = {
             searchVal:''
         }
+        this.onUpdate=this.onUpdate.bind(this)
     }
     componentDidMount(){
         this.props.search('all')
@@ -23,6 +24,9 @@ class Parts extends React.Component{
     onChange= (value) => {
         this.setState({ 'searchVal':value });
     };
+    onUpdate(id){
+        this.props.history.push('/main/partupdate?'+id)
+    }
     render(){
         return(
             <div>
@@ -48,6 +52,7 @@ class Parts extends React.Component{
                                     <p>商铺地址:{item.address}</p>
                                 </div>
                             </Card.Body>
+                            <Card.Footer  extra={<div onClick={()=>this.onUpdate(item._id)} style={{color:'red',fontSize:'1rem'}}>修改</div>} />
                         </Card>
                     ))
                     }

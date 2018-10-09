@@ -6,8 +6,11 @@ import Parts from './parts'
 import Operations from './operations'
 import {search}from '../../redux/customers.redux'
 import CustomerAdd from './customerAdd'
+import CustomerUpdate from './customerUpdate'
 import PartAdd from './partsAdd'
+import PartUpdate from './partUpdate'
 import OperationAdd from './operationAdd'
+import OperationUpdate from './operationUpdate'
 import './css/main.css'
 import {connect}from 'react-redux'
 require('jquery')
@@ -57,6 +60,13 @@ class Main extends React.Component{
                 component:CustomerAdd,
             },
             {
+                key:'/main/customerupdate',
+                title:'顾客信息',
+                icon:'',
+                selectedIcon:'',
+                component:CustomerUpdate,
+            },
+            {
                 key:'/main/parts',
                 title:'配件信息',
                 icon:'',
@@ -72,6 +82,13 @@ class Main extends React.Component{
                 component:PartAdd,
             },
             {
+                key:'/main/partupdate',
+                title:'配件信息',
+                icon:'',
+                selectedIcon:'',
+                component:PartUpdate,
+            },
+            {
                 key:'/main/operations',
                 title:'修理信息',
                 icon:'',
@@ -84,6 +101,13 @@ class Main extends React.Component{
                 icon:'',
                 selectedIcon:'',
                 component:OperationAdd,
+            },
+            {
+                key:'/main/operationupdate',
+                title:'修理信息',
+                icon:'',
+                selectedIcon:'',
+                component:OperationUpdate,
             }
         ]
         const List1 = [

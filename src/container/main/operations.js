@@ -13,6 +13,7 @@ class Operations extends React.Component{
         this.state = {
             searchVal:''
         }
+        this.onUpdate=this.onUpdate.bind(this)
     }
     componentDidMount(){
         this.props.search('all')
@@ -23,6 +24,9 @@ class Operations extends React.Component{
     onChange= (value) => {
         this.setState({ 'searchVal':value });
     };
+    onUpdate(id){
+        this.props.history.push('/main/operationupdate?'+id)
+    }
     render(){
         return(
             <div>
@@ -49,6 +53,7 @@ class Operations extends React.Component{
                                     <p>修理信息:{item.action}</p>
                                 </div>
                             </Card.Body>
+                            <Card.Footer  extra={<div onClick={()=>this.onUpdate(item._id)} style={{color:'red',fontSize:'1rem'}}>修改</div>} />
                         </Card>
                     ))
                     }

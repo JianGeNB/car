@@ -33,3 +33,9 @@ W
 'server/customerserver/customerSerevr.js,6\4\64429dc4efeee5f3a439eaacf77ba4707ffa1406
 W
 'server/customerserver/customerModule.js,d\5\d5bedea425dc4f99978e26985f0fd66b3c285b69
+K
+src/components/css/logo.css,b\e\be98da4d371022322c4c29e6f1aeb453f068710f
+L
+src/redux/customers.redux.js,1\9\1921c6df8987f382beb3042630f9602a77d89445
+F
+src/components/logo.js,7\f\7f19b3418913381a75fa9bdab2dff9aff9afab74

@@ -9,6 +9,8 @@ class RouteConfirm extends React.Component{
         axios.get('/admin/admin?'+timer).then(res=>{
             if(res.data.code!==0){
                 this.props.history.push('/login')
+            }else {
+                this.props.history.push('/main/customers')
             }
         })
     }

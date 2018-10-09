@@ -13,6 +13,7 @@ import {search}from '../../redux/customers.redux'
         this.state = {
             searchVal:''
         }
+        this.onUpdate=this.onUpdate.bind(this)
     }
     componentDidMount(){
         this.props.search('all')
@@ -22,7 +23,10 @@ import {search}from '../../redux/customers.redux'
     }
     onChange= (value) => {
         this.setState({ 'searchVal':value });
-    };
+    }
+    onUpdate(id){
+            this.props.history.push('/main/customerupdate?'+id)
+    }
      render(){
          return(
              <div>
@@ -49,6 +53,7 @@ import {search}from '../../redux/customers.redux'
                                      <p>所用车辆:{item.car}</p>
                                  </div>
                              </Card.Body>
+                             <Card.Footer  extra={<div onClick={()=>this.onUpdate(item._id)} style={{color:'red',fontSize:'1rem'}}>修改</div>} />
                          </Card>
                      ))
                      }

@@ -20,8 +20,19 @@ customer.get('/all',function (req,res) {
 })
 customer.post('/customer',function (req,res) {
     const {name}=req.body
+    let query = {}
+    query['name']=new RegExp(name)
     console.log(req.body)
-    Customer.findOne({name},function (err,doc) {
+    Customer.find(query,function (err,doc) {
+        // const dataArr=[];
+        // dataArr.push(doc)
+        return res.json({code:0,data:doc})
+    })
+})
+customer.post('/customerId',function (req,res) {
+    const {id}=req.body
+    console.log(req.body)
+    Customer.findOne({_id:id},function (err,doc) {
         const dataArr=[];
         dataArr.push(doc)
         return res.json({code:0,data:dataArr})
@@ -31,6 +42,13 @@ customer.post('/addcustomer',function (req,res) {
     const {name,tel,fee,address,car}=req.body
     Customer.create({name,tel,fee,address,car},function (err,doc) {
         return res.json({code:0,msg:'添加成功'})
+    })
+})
+customer.post('/updatecustomer',function (req,res) {
+    const {id,name,tel,fee,address,car}=req.body;
+    console.log(req.body)
+    Customer.findByIdAndUpdate({_id:id},{name:name,fee:fee,tel:tel,address:address,car:car},function (err,doc) {
+        return res.json({code:0,msg:'修改成功'})
     })
 })
 module.exports = customer

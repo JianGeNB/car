@@ -55,7 +55,7 @@ class Login extends React.Component{
                             用户名
                         </InputItem>
                         <WhiteSpace/>
-                        <InputItem onChange={value=>this.handleChange('password',value)}>
+                        <InputItem type='password' onChange={value=>this.handleChange('password',value)}>
                             密码
                         </InputItem>
                         <WhiteSpace/>

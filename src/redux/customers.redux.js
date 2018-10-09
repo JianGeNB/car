@@ -1,6 +1,7 @@
 import axios from 'axios';
 const SEARCG_SUCCESS = 'SEARCG_SUCCESS';
-const ADD_SUCCESS = 'ADD_SUCCESS'
+const ADD_SUCCESS = 'ADD_SUCCESS';
+const SEARCHID_SUCCESS = 'SEARCHID_SUCCESS'
 
 const initState={
     data:[],
@@ -12,8 +13,10 @@ export function customersReducer(state=initState,action) {
         case SEARCG_SUCCESS:
             return {...state,data:action.data,msg:''}
         case ADD_SUCCESS:
-            console.log(...state)
+            // console.log(...state)
             return {...state,msg:action.msg}
+        case SEARCHID_SUCCESS:
+            return {data:action.data}
         default:
             return state
     }
@@ -21,6 +24,9 @@ export function customersReducer(state=initState,action) {
 //顾客action
 function searchSuccess(data) {
     return {type:SEARCG_SUCCESS,data:data}
+}
+function searchIdSuccess(data) {
+    return {type:SEARCHID_SUCCESS,data:data}
 }
 function addSuccess(msg) {
     return {type: ADD_SUCCESS,msg:msg}
@@ -44,6 +50,16 @@ export function search(name) {
                 }
             })
         }
+    }
+}
+export function searchId(id) {
+    return dispatch=>{
+        let timer = new Date().getTime().toString();
+        axios.post('/customers/customerId?'+timer,{id}).then(res=>{
+            if(res.status===200&&res.data.code===0){
+                dispatch(searchIdSuccess(res.data.data))
+            }
+        })
     }
 }
 export function addCustomer({name,tel,fee,address,car}) {
